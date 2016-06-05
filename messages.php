@@ -17,25 +17,45 @@
             
             if ( $ip && $scene && $group ) {
             
-            echo wrap("div", ["class"=>"messagesetheader"], "$group");
-    
-            $messageSets = explode("\n", get("http://$ip:8001/lightboard/scene/$scene/group/$group/list"));
-            
-            foreach ( $messageSets as $messageSet ) {
+                echo wrap("div", ["class"=>"messagesetheader"], "$group");
+
+                $messageSets = explode("\n", get("http://$ip:8001/lightboard/scene/$scene/group/$group/list"));
                 
-                echo wrapStart("div", ["class"=>"messageset"]);
+                $setCount = count($messageSets);
+                $messageCount = 0;
                 
-                $messages = explode(";;", $messageSet );
-                $width = 98 / (count($messages));
-                
-                foreach ( $messages as $message ) {
-                    echo wrap("input", ["type"=>"text", "value"=>"$message", "style"=>"width: ${width}%"]);
+                echo wrapStart("div", ["id"=>"messageList"]);
+
+                $si = 0;
+                foreach ( $messageSets as $messageSet ) {
+
+                    echo wrapStart("div", ["class"=>"messageset"]);
+
+                    $messages = explode(";;", $messageSet );
+                    $width = 98 / (count($messages));
+                    
+                    $messageCount = count($messages);
+
+                    $mi = 0;
+                    foreach ( $messages as $message ) {
+                        echo wrap("input", ["id"=>"msg-$si-$mi", "type"=>"text", "value"=>"$message", "style"=>"width: ${width}%"]);
+                        $mi++;
+                    }
+
+                    $si++;
+
+                    echo "<br>";
+
+                    echo wrapEnd("div");
                 }
-                echo "<br>";
+                
+                echo wrap("script", [], "setCount=$setCount; msgCount=$messageCount;");
                 
                 echo wrapEnd("div");
-            }
-            
+                
+                echo wrap("button", ["class"=>"control", "style"=>"width: 50px;", "type"=>"button", "onclick"=>"addMessageRow($width);"], "Add");
+                echo wrap("button", ["class"=>"control", "style"=>"width: 50px;", "type"=>"button", "onclick"=>"clearMessages(\"$ip\", \"$scene\", \"$group\");"], "Clear");
+                echo wrap("button", ["class"=>"control", "style"=>"width: 50px;", "type"=>"button", "onclick"=>"saveMessages(\"$ip\", \"$scene\", \"$group\");"], "Save");
             }
     
         }
