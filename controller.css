@@ -1,0 +1,95 @@
+body {
+    font-family: Verdana, Arial, sans-serif;
+}
+
+h1 {
+    color: white;
+    background-color: rgb(100,100,155);
+    border: 1px solid rgb(50,50,75);
+    margin: 2px;
+    width: 200px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: large;
+}
+
+a {
+    color: black;
+    border: 1px solid rgb(100,100,155);
+    text-decoration: none;
+    display: block;
+    margin: 2px;
+    width: 200px;
+    padding: 5px;
+    background-color: rgb(200,200,255);
+    border-radius: 5px;
+}
+
+.control {
+    color: white;
+    text-align: center;
+    font-size: small;
+    border: 1px solid rgb(100,100,155);
+    text-decoration: none;
+    display: block;
+    margin: 2px;
+    width: 37px;
+    padding: 5px;
+    background-color: rgb(100,100,155);
+    border-radius: 5px;
+    float:left;
+    cursor: pointer;
+}
+
+label {
+    height: 30px;
+}
+
+.back {
+    color: white;
+    background-color: rgb(100,100,155);
+    border: 1px solid rgb(50,50,75);
+}
+
+.messageset {
+    color: black;
+    border: 1px solid rgb(100,100,155);
+    text-decoration: none;
+    display: block;
+    margin: 2px;
+    width: 700px;
+    padding: 5px;
+    background-color: rgb(200,200,255);
+    border-radius: 5px;
+}
+
+.messagesetheader {
+    font-weight: bold;
+    color: white;
+    background-color: rgb(100,100,155);
+    border: 1px solid rgb(50,50,75);
+    margin: 2px;
+    width: 700px;
+    padding: 5px;
+    border-radius: 5px;
+    font-size: large;
+}
+
+input {
+    height: 30px;
+    background-color: rgb(250, 250, 255);
+    padding: 1px;
+    border: 1px solid rgb(150, 150, 155);
+    border-radius: 5px;
+}
+
+a:hover {
+    background-color: rgb(255,200,255);
+    color: black;
+}
+
+a:active {
+    background-color: rgb(255,255,255);
+    color: black;
+    
+}
