@@ -12,7 +12,7 @@
             <label for="ipaddress">LightBoard IP</label>&nbsp;<input id="ipaddress" name="ipaddress" type="text" onchange="loadBoard();"/>
         </div>
 
-        <iframe id="board" name="board" width="1400" height="1000" src="" frameborder="0" style="float: left;"></iframe>
+        <iframe id="board" name="board" width="1300" height="1000" src="" frameborder="0" style="float: left;"></iframe>
 
     </body>
 
