@@ -56,10 +56,9 @@ function saveMessages(ip, scene, group) {
 
             for (var i = 0; i < messages.length; i++) {
                 post(ip, "scene/" + scene + "/group/" + group + "/add", messages[i]);
-                console.log(i + "=" + messages[i]);
             }
-//            post(ip, "scene/" + scene + "/load", "");
             setTimeout(function () {
+                post(ip, "scene/reload", "");
                 $("#messagePanel", parent.document).attr("src", "messages.php?ip=" + ip + "&scene=" + scene + "&group=" + group);
             }, 1000);
         }, 500);
